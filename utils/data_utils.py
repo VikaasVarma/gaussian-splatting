@@ -3,11 +3,11 @@ import json
 import numpy as np
 from argparse import ArgumentParser
 
-from arguments import ModelParams, Namespace
+from arguments import ModelParams
 from scene import Scene, GaussianModel
 
 
-def _COLMAP_to_OpenGL(colmap: np.ndarray) -> np.ndarray:
+def _COLMAP_to_OpenGL(colmap):
     opengl = np.eye(4)
     colmap = colmap.cpu().numpy()
 
