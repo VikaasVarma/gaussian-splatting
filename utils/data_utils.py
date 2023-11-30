@@ -8,13 +8,10 @@ from scene import Scene, GaussianModel
 
 
 def _COLMAP_to_OpenGL(colmap):
-    opengl = np.eye(4)
     colmap = colmap.cpu().numpy()
 
-    opengl[:3, 3] = colmap[:3, 3]
-    opengl[:3, :3] = colmap[:3, :3].T
-    opengl = np.linalg.inv(opengl)
-    opengl[:3, 1:2] *= -1
+    opengl = np.linalg.inv(colmap).T
+    opengl[:3, 1:3] *= -1
     return opengl
 
 def binary_to_transform_json(model_path: str, data_path: str):
