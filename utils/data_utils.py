@@ -44,3 +44,12 @@ def binary_to_transform_json(model_path: str, data_path: str):
     with open(os.path.join(model_path, "transforms_train.json"), "w") as f:
         json.dump(JSON, f)
 
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("-m", "--model_path", type=str, required=True)
+    parser.add_argument("-s", "--data_path", type=str, required=True)
+    args = parser.parse_args()
+
+    binary_to_transform_json(args.model_path, args.data_path)
