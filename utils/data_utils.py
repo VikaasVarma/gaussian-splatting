@@ -41,7 +41,7 @@ def binary_to_transform_json(model_path: str, data_path: str):
         ]
     }
 
-    with open(os.path.join(model_path, "transforms_train.json"), "w") as f:
+    with open(os.path.join(data_path, "transforms_train.json"), "w") as f:
         json.dump(JSON, f)
 
 
