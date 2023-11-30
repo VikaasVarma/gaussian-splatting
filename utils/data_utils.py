@@ -44,6 +44,13 @@ def binary_to_transform_json(model_path: str, data_path: str):
     with open(os.path.join(data_path, "transforms_train.json"), "w") as f:
         json.dump(JSON, f)
 
+    # Create empty test and val transforms
+    with open(os.path.join(data_path, "transforms_test.json"), "w") as f:
+        json.dump({"camera_angle_x": 0, "frames" : []}, f)
+
+    with open(os.path.join(data_path, "transforms_val.json"), "w") as f:
+        json.dump({"camera_angle_x": 0, "frames" : []}, f)
+
 
 
 if __name__ == "__main__":
