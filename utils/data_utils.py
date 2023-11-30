@@ -9,6 +9,8 @@ from scene import Scene, GaussianModel
 
 def _COLMAP_to_OpenGL(colmap: np.ndarray) -> np.ndarray:
     opengl = np.eye(4)
+    colmap = colmap.cpu().numpy()
+
     opengl[:3, 3] = colmap[:3, 3]
     opengl[:3, :3] = colmap[:3, :3].T
     opengl = np.linalg.inv(opengl)
